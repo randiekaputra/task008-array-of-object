@@ -1,0 +1,16 @@
+.bg-whitesmoke{
+    background-color: #f4f3f3) !important;
+}
+
+.bg-card{
+    height: 73vh;
+    background-color: #e2e6ea !important;
+}
+
+.bdr{
+    box-shadow: 30px;
+}
+
+.justify{
+    text-align: justify;
+}

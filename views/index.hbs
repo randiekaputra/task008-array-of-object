@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+  </head>
+  <body style="max-width: auto;">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-whitesmoke py-2">
+      <div class="container">
+        <a class="navbar-brand" href="/"
+          ><img src="../public/image/logo.png" alt="logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-5">
+              <a class="nav-link active text-black" aria-current="page" href="/"
+                ><h5>Home</h5></a
+              >
+            </li>
+            <li class="nav-item text-dark mx-3">
+            {{!-- {{if isLogin}} --}}
+              <a class="nav-link" href="/add-project"><h5>Add Project</h5></a>
+            {{!-- {{/if}} --}}
+            </li>
+          </ul>
+          <a
+            class="nav-link btn btn-light bg-dark text-light px-3 rounded-4"
+            href="/contact-me"
+            role="button"
+            ><h5 class="py-1">Contact Me</h5></a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- card -->
+    <div class="px-5 py-5 bg-card">
+      <div
+        class="card shadow-lg p-5 m-0 bg-body rounded bg-light"
+        style="max-width: auto"
+      >
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body fs-5">
+              <h1 class="card-title">Hi, welcome to my web page</h1>
+              <p class="card-text pe-5 me-5" style="text-align: justify">
+                I'm Randi and welcome to my web page. So for this time, I will
+                introduce my personal card for you. In the future, this page
+                will be devoted to personal coding journals and in it will also
+                be my learning process from scratch in the coding world.
+              </p>
+              <div class="py-3">
+                <a href="/contact-me"
+                  class="text-decoration-none text-light rounded-3 px-3 py-1 bg-dark"
+                  {{!-- class="btn btn-dark btn-sm fs-5 text-light rounded-3 px-3 bg-dark" --}}
+                  {{!-- role="button"
+                  data-bs-toggle="button" --}}
+                  style="background-color: #111727 !important; font-size:18px;"
+                  >
+                  contact
+                </a>
+                <a
+                  class="text-decoration-none text-dark text-center p-1 ms-3"
+                  style="font-size: 18px;"
+                  href="../public/file/cv.pdf" target="_blank"
+                  {{!-- role="button" data-bs-toggle="button" --}}
+                  >download cv
+                  <img
+                    class="p-1 ms-1"
+                    src="../public/image/icon/download-logo.png"
+                    style="width: 23px"
+                    alt=""
+                /></a>
+              </div>
+              <div class="d-flex mt-4">
+                <a class="pe-2" href="https://www.instagram.com" target="_blank"
+                  ><img src="../public/image/icon/instagram.png" alt="" width="50px"
+                /></a>
+                <a class="pe-2" href="https://www.telegram.org" target="_blank"
+                  ><img src="../public/image/icon/telegram.png" alt="" width="50px"
+                /></a>
+                <a class="pe-2" href="https://www.twitter.com" target="_blank"
+                  ><img src="../public/image/icon/twitter.png" alt="" width="50px"
+                /></a>
+                <a class="pe-2" href="https://www.youtube.com" target="_blank"
+                  ><img src="../public/image/icon/youtube.png" alt="" width="50px"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 ms-5 bg-muted shadow-lg rounded-5">
+            <img
+              src="../public/image/pic/model.png"
+              class="img-fluid rounded-top"
+              alt="profile pic"
+              style="width: 360px;"
+            />
+            <div class="shadow rounded-5 p-1 text-center">
+              <h3 class="pt-3 text-black">Randi Eka Putra</h3>
+              <h5 class="pb-3">Fullstack Developer</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- my project -->
+    <div class="container mt-5" id="my-project">
+        {{#each projects}}
+      <h1 class="m-5 text-center text-black">MY PROJECT</h1>
+      
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- project-1 -->
+        <div class="col">
+          <div class="card py-2 px-3 bdr shadow rounded-4">
+            <img
+              src="../public/image/pic/img1.png"
+              class="card-img-top py-3 px-3 rounded-5"
+              alt="..."
+            />
+            <div class="card-body px-3 justify">
+              <a href="/project-detail/{{@index}}" class="text-decoration-none"></a>
+              <h5 class="card-title pb-1 text-black">
+                {{this.title}}
+              </h5>
+              <p class="text-secondary"><small>Duration: {{this.duration}}</small></p>
+              <p class="card-text pt-1">
+                {{this.description}}
+              </p>
+              <div class="mb-2 pe-5 fs-3">
+                <i class="{{this.html5}}"></i>
+                <i class="{{this.css}}"></i>
+                <i class="{{this.js}}"></i>
+                <i class="{{this.reactjs}}"></i>
+              </div>
+            </div>
+            {{#if isLogin}}
+              <div class="gap-2 d-lg-flex mb-3 justify-content-center align-items-center">
+                  <a href="/edit-project/{{@index}}" class="btn btn-dark text-decoration-none col-lg-5 d-block mb-lg-0 col-10 mb-3 ms-4 ms-md-0" type="button">
+                      Edit
+                  </a>
+                  <a href="/del-project/{{@index}}" class="btn btn-dark text-decoration-none col-lg-5 d-block col-10 ms-4 ms-md-0" type="button">
+                      Delete
+                  </a>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+        {{/each}}
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
